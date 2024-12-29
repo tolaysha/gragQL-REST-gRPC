@@ -18,7 +18,7 @@ const resolvers= {
     Mutation: {
       incrementLike(parent, args) {
         users.map((user)=> {
-  if(user.fname=== args.fname) user.likes++return user
+  if(user.fname=== args.fname) {user.likes++; return user}
         })
         pubsub.publish('LIKES', {listenLikes: users});
   return users
